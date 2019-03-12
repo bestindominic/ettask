@@ -35,7 +35,7 @@ Application Dockerfile → Dockerfile
 
 Custom ubuntu-java image →  baseimage-dockerfile
 
-Jenkins url: http://54.254.128.48:8080
+Jenkins url: http://54.254.128.48:8080 user: admin password: admin
 
 Application url http://54.254.128.48/hello
 
