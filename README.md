@@ -26,8 +26,16 @@ I have created a custom docker image (baseimage-dockerfile) for the application 
 
 
 App build playbook → app-build.yml
+
 App deploy playbook → app-deploy.yml
+
 Apache config file → apache-test.conf
+
 Application Dockerfile → Dockerfile
+
 Custom ubuntu-java image →  baseimage-dockerfile
+
+Jenkins url: http://54.254.128.48:8080
+
+Application url http://54.254.128.48/hello
 
