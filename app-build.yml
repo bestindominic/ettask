@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  connection: local
+
+  vars:
+  - docker_tag: "{{ docker_image_tag }}"
+  - docker_repo: bestind/job-task
+ 
+  tasks:
+  - name: app build | Docker Login
+    shell: docker login -u bestind -p bestin123
+    delegate_to: 127.0.0.1
+    run_once: true
+
+  - name: app build | Build Docker
+    shell: docker build .  -t {{ docker_repo }}:{{ docker_tag }}
+    args:
+      chdir: "../../../"
+    delegate_to: 127.0.0.1
+    run_once: true
+
+  - name: app build | Push Docker
+    shell: docker push {{ docker_repo }}:{{ docker_tag }}
+    delegate_to: 127.0.0.1
+    run_once: true

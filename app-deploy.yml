@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+
+  vars:
+  - docker_repo: bestind/job-task
+
+  tasks:
+  - name: app deploy | Login Docker
+    shell: docker login -u bestind -p bestin123
+
+  - name: app deploy | Pull Docker
+    shell: docker pull {{ docker_repo }}:{{ docker_tag }}
+
+  - name: app deploy | Stop existing
+    shell: docker rm -f java_app
+    ignore_errors: yes
+
+  - name: app deploy | Start existing
+    shell: docker run -d
+      --restart always
+      --name java_app
+      {{ docker_repo }}:{{ docker_tag }}
