@@ -7,7 +7,7 @@
 
   tasks:
   - name: app deploy | Login Docker
-    shell: docker login -u bestind -p bestin123
+    shell: cat ~/pwd.txt | docker login -u bestind --password-stdin
 
   - name: app deploy | Pull Docker
     shell: docker pull {{ docker_repo }}:{{ docker_tag }}
