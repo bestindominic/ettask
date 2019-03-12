@@ -12,12 +12,13 @@
   - name: app deploy | Pull Docker
     shell: docker pull {{ docker_repo }}:{{ docker_tag }}
 
-  - name: app deploy | Stop existing
+  - name: app deploy | Remove existing container
     shell: docker rm -f java_app
     ignore_errors: yes
 
-  - name: app deploy | Start existing
+  - name: app deploy | Start the new container
     shell: docker run -d
+      -p 8081:8080
       --restart always
       --name java_app
       {{ docker_repo }}:{{ docker_tag }}
