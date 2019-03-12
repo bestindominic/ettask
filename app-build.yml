@@ -13,9 +13,9 @@
     run_once: true
 
   - name: app build | Build Docker
-    shell: docker build .  -t {{ docker_repo }}:{{ docker_tag }}
+    shell: docker build . -f ettask/Dockerfile -t {{ docker_repo }}:{{ docker_tag }}
     args:
-      chdir: "../../../"
+      chdir: "../"
     delegate_to: 127.0.0.1
     run_once: true
 
